@@ -9,7 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class FestivalOfElves {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		// invoke the firefox driver i.e gecko driver
 		System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
 
