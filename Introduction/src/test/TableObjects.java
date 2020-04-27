@@ -17,7 +17,7 @@ public class TableObjects {
 		driver.get("https://www.cricbuzz.com/live-cricket-scorecard/22782/nz-vs-ind-2nd-test-india-tour-of-new-zealand-2020");
 		//define the scope
 		WebElement tableScope= driver.findElement(By.cssSelector("div [class='cb-col cb-col-100 cb-ltst-wgt-hdr']"));
-		
+		//traversing from parent to child
 		//as we have to capture the third column by defining div:nth-child(3) for the class cb-col cb-col-100 cb-scrd-itms which is the class for each row in the above scope 
 	List<WebElement> count= tableScope.findElements(By.cssSelector("div[class='cb-col cb-col-100 cb-scrd-itms'] div:nth-child(3)")); 
 	//int count = tableScope.findElements(By.cssSelector("div[class='cb-col cb-col-100 cb-scrd-itms'] div:nth-child(3)")).size();
@@ -29,6 +29,8 @@ public class TableObjects {
 	);
 	
 	}
+	//traversing between the siblings using xpath
+	System.out.println(driver.findElement(By.xpath("//div[text()='Extras']/following-sibling::div")).getText());
 	}
 
 }
