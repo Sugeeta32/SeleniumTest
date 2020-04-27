@@ -10,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class TableObjects {
 
 	public static void main(String[] args) {
+		int sum=0;
 		// TODO Auto-generated method stub
 		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
@@ -25,12 +26,28 @@ public class TableObjects {
 	for(int i=0;i<count.size()-2; i++)
 	//for(int i=0;i<count-2; i++)
 	{
-		System.out.println(tableScope.findElements(By.cssSelector("div[class='cb-col cb-col-100 cb-scrd-itms'] div:nth-child(3)")).get(i).getText()
-	);
+		//System.out.println(count.get(i).getText());
+		//prints the text at i index, store it in a variable and then convert the string into integer to get the total
+		String countScore=count.get(i).getText();
+		int value= Integer.parseInt(countScore);
+		sum= sum+value;
+		//System.out.println("inside the for loop total "+sum);
 	
 	}
 	//traversing between the siblings using xpath
 	System.out.println(driver.findElement(By.xpath("//div[text()='Extras']/following-sibling::div")).getText());
+	String extra=driver.findElement(By.xpath("//div[text()='Extras']/following-sibling::div")).getText();
+	int score= Integer.parseInt(extra);
+	int totalSum= sum +score;
+	System.out.println("after adding extras outside loop"+ totalSum);
+	System.out.println("Total score "+ driver.findElement(By.xpath("//div[text()='Total']/following-sibling::div")).getText());
+	//to compare the actual value with our totalSum
+	String actualTotal=driver.findElement(By.xpath("//div[text()='Total']/following-sibling::div")).getText();
+	int actualTotalVal=Integer.parseInt(actualTotal);
+	if(actualTotalVal==totalSum) {
+		System.out.println("actualTotalVal "+actualTotalVal+"= "+"totalSum "+totalSum);
+	}
+	
 	}
 
 }
