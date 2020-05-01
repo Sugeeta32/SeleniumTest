@@ -47,6 +47,9 @@ public class TableObjects {
 	if(actualTotalVal==totalSum) {
 		System.out.println("actualTotalVal "+actualTotalVal+"= "+"totalSum "+totalSum);
 	}
+	else {
+		System.out.println("actualTotalVal "+actualTotalVal+"is not equal to "+"totalSum "+totalSum);
+	}
 	
 	}
 
